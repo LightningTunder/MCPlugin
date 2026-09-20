@@ -1,0 +1,9 @@
+name: IlkPluginim
+version: 1.0
+main: me.ismin.ilkpluginim.IlkPluginim
+api-version: '1.21'
+author: SeninAdin
+description: Bulut üzerinden derlenen ilk pluginim!
+commands:
+  selam:
+    description: Selam verme komutu.
