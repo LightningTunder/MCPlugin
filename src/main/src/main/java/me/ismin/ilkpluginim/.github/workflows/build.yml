@@ -1,0 +1,21 @@
+name: Build Plugin
+on: [push] # Her kod yüklediğinde otomatik çalışır
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4 # Kodları indir
+      - name: Set up JDK 21 # Java 21 kur
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: 'maven'
+      - name: Build with Maven # Maven ile derle
+        run: mvn clean package
+      - name: Upload JAR # .jar dosyasını indirilebilir yap
+        uses: actions/upload-artifact@v4
+        with:
+          name: Minecraft-Plugin-JAR
+          path: target/*.jar
